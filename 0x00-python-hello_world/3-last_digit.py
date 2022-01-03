@@ -16,7 +16,7 @@ else:
 if digit > 5:
     bit = "greater than 5"
 elif digit == 0:
-    bit = "is 0"
+    bit = "0"
 else:
-    bit = "less than 6"
+    bit = "less than 6 and not 0"
 print("Last digit of {:d} is {:d} and is {}".format(number, digit, bit))
