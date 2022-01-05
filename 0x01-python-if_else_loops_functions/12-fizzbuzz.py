@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def fizzbuzz():
     for n in range(1, 100+1):
         if n % 3 == 0:
