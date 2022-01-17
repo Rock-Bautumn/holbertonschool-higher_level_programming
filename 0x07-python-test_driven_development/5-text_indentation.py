@@ -4,4 +4,3 @@ This function indents text
 """
 
 "fubar"
-

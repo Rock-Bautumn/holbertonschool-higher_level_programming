@@ -3,6 +3,7 @@
 This function prints a square
 """
 
+
 def print_square(size):
     """
     fubar
