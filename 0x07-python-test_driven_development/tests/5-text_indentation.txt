@@ -2,9 +2,43 @@
 
 >>> "fubar"
 'fubar'
->>> fubar
-fubar
->>> fubar
-fubar
->>> fubar
-fubar
+>>> text_indentation("MLK")
+MLK
+
+>>> text_indentation("MLK, jr")
+MLK, jr
+
+>>> text_indentation("MLK, jr")
+MLK, jr
+
+>>> text_indentation("When, it rain, it pours. The grass is greener on the other side.")
+When, it rain, it pours.
+<BLANKLINE>
+The grass is greener on the other side.
+<BLANKLINE>
+>>> text_indentation("When, it rain, it pours. The grass is greener on the other side.", "two args")
+Traceback (most recent call last):
+  ...
+TypeError: text_indentation() takes 1 positional argument but 2 were given
+>>> text_indentation("Do you have a question? No, just a test. Looking for bugs.")
+Do you have a question?
+<BLANKLINE>
+No, just a test.
+<BLANKLINE>
+Looking for bugs.
+<BLANKLINE>
+>>> text_indentation("Bugs Bunny? I didn't know that's who you were looking for. What if: No, nevermind.")
+Bugs Bunny?
+<BLANKLINE>
+I didn't know that's who you were looking for.
+<BLANKLINE>
+What if:
+<BLANKLINE>
+No, nevermind.
+<BLANKLINE>
+>>> text_indentation("12")
+12
+>>> text_indentation("12", 34, 43, 45, 65, 26, 74, 47, 990, 53, 76, 36)
+Traceback (most recent call last):
+  ...
+TypeError: text_indentation() takes 1 positional argument but 12 were given
