@@ -36,5 +36,9 @@ class TestMaxInteger(unittest.TestCase):
         """Testing only negative integers"""
         self.assertEqual(max_integer([-1, -5, -999999999999]), -1)
 
+    def test_middle_is_max(self):
+        """Testing when middle value is max integer"""
+        self.assertEqual(max_integer([1, 2, 100, 98, 50]), 100)
+
 if __name__ == "__main__":
     unittest.main()
