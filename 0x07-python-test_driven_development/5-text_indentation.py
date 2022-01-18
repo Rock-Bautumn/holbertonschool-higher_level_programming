@@ -5,6 +5,9 @@ This function indents text
 
 
 def text_indentation(text):
+    """
+    This function puts in new lines when it sees certain characters
+    """
     if type(text) is not str:
         raise TypeError("text must be a string")
     nl_array = [".", "?", ":"]
