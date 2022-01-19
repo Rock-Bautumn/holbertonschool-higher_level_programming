@@ -68,3 +68,12 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * self.__width + 2 * self.__height
+
+    def __str__(self):
+        """
+        returns the rectangle, doesn't give a description
+        """
+        output = ""
+        for n in range(self.__height):
+            output += chr(35) * self.__width + "\n"
+        return output[:-1]
