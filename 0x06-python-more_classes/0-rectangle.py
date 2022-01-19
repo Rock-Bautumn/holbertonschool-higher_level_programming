@@ -3,11 +3,11 @@
 This module has a class for Rectangle
 """
 
+
 class Rectangle:
     """
     Class for rectangles, has width and height
     """
-
 
     def __init__(self, width=0, height=0):
         if type(width) != int:
@@ -22,7 +22,6 @@ class Rectangle:
         self.__width = width
         self.__height = height
 
-
     @property
     def width(self):
         """
@@ -30,14 +29,12 @@ class Rectangle:
         """
         return self.__width
 
-
     @property
     def height(self):
         """
         This is the getter for the height
         """
         return self.__height
-
 
     @width.setter
     def width(self, value):
@@ -50,7 +47,6 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = value
 
-
     @height.setter
     def height(self, value):
         """
@@ -61,5 +57,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
-
