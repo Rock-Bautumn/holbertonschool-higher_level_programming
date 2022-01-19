@@ -74,6 +74,7 @@ class Rectangle:
         returns the rectangle, doesn't give a description
         """
         output = ""
-        for n in range(self.__height):
-            output += chr(35) * self.__width + "\n"
+        if self.__width > 0:
+            for n in range(self.__height):
+                output += chr(35) * self.__width + "\n"
         return output[:-1]
