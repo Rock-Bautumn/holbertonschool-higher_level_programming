@@ -84,5 +84,5 @@ class Rectangle:
         This returns the string necessary to make a clone using eval()
         """
         output = "Rectangle(" + str(self.__width) + ", " \
-        + str(self.__height) + ")"
+                 + str(self.__height) + ")"
         return output
