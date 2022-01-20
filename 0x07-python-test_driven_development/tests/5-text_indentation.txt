@@ -16,6 +16,15 @@ When, it rain, it pours.
 <BLANKLINE>
 The grass is greener on the other side.
 <BLANKLINE>
+
+
+>>> text_indentation(98)
+Traceback (most recent call last):
+  ...
+    raise TypeError("text must be a string")
+TypeError: text must be a string
+
+
 >>> text_indentation("When, it rain, it pours. The grass is greener on the other side.", "two args")
 Traceback (most recent call last):
   ...
