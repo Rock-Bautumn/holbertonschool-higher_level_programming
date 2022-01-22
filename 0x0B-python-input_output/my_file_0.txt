@@ -1,0 +1,12 @@
+This is an example file provided by Holberton.
+
+I didn't type it.
+
+I am just writing more content.
+
+Here's what they gave us, though:
+
+We offer a truly innovative approach to education:
+focus on building reliable applications and scalable systems, take on real-world challenges, collaborate with your peers. 
+
+A school every software engineer would have dreamt of!
