@@ -1,6 +1,6 @@
 Set up the test conditions
 
-    >>> MyList = __import__("1-my_list").MyList
+    >>> baseGeo = __import__("7-base_geometry").BaseGeometry
 
 
 Do the tests
