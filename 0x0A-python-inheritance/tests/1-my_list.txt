@@ -1,0 +1,58 @@
+Get the tests ready
+
+    >>> MyList = __import__("1-my_list").MyList
+
+Start the tests
+
+    >>> testList = MyList()
+    >>> testList
+    []
+    >>> testList.print_sorted()
+    []
+    >>> testList = MyList([4, 3, 2, 1])
+    Traceback (most recent call last):
+    ...
+    TypeError: __init__() takes 1 positional argument but 2 were given
+    >>> testList.append(42)
+    >>> testList
+    [42]
+    >>> testList.print_sorted()
+    [42]
+    >>> testList.append(55)
+    >>> testList
+    [42, 55]
+    >>> testList.print_sorted()
+    [42, 55]
+    >>> testList.append(7)
+    >>> testList
+    [42, 55, 7]
+    >>> testList.print_sorted()
+    [7, 42, 55]
+    >>> testList.append(-66)
+    >>> testList
+    [42, 55, 7, -66]
+    >>> testList.print_sorted()
+    [-66, 7, 42, 55]
+    >>> testList = MyList()
+    >>> testList.append(-100)
+    >>> testList
+    [-100]
+    >>> testList.print_sorted()
+    [-100]
+    >>> testList.append(-200)
+    >>> testList.append(-0)
+    >>> testList.append(-50)
+    >>> testList
+    [-100, -200, 0, -50]
+    >>> testList.print_sorted()
+    [-200, -100, -50, 0]
+    >>> testList.append(75)
+    >>> testList.print_sorted()
+    [-200, -100, -50, 0, 75]
+    >>> testList.append("error")
+    >>> testList
+    [-100, -200, 0, -50, 75, 'error']
+    >>> testList.print_sorted()
+    Traceback (most recent call last):
+        ...
+    TypeError: '<' not supported between instances of 'str' and 'int'
