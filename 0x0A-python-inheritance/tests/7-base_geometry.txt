@@ -27,3 +27,53 @@ Do the tests
     Traceback (most recent call last):
     ...
     Exception: area() is not implemented
+    >>> baseGeo.integer_validator(baseGeo, "testvalue", "string error")
+    Traceback (most recent call last):
+    ...
+    TypeError: testvalue must be an integer
+    >>> len(baseGeo.__doc__)
+    76
+    >>> baseGeo.integer_validator(baseGeo, "testvalue", (1,))
+    Traceback (most recent call last):
+    ...
+    TypeError: testvalue must be an integer
+    >>> baseGeo.integer_validator(baseGeo, "testvalue", [2])
+    Traceback (most recent call last):
+    ...
+    TypeError: testvalue must be an integer
+    >>> baseGeo.integer_validator(baseGeo, "testvalue", False)
+    Traceback (most recent call last):
+    ...
+    TypeError: testvalue must be an integer
+    >>> baseGeo.integer_validator(baseGeo, "testvalue", float('nan'))
+    Traceback (most recent call last):
+    ...
+    TypeError: testvalue must be an integer
+    >>> baseGeo.integer_validator(baseGeo, "testvalue", float('inf'))
+    Traceback (most recent call last):
+    ...
+    TypeError: testvalue must be an integer
+    >>> baseGeo.integer_validator(baseGeo, "testvalue", {9, 5})
+    Traceback (most recent call last):
+    ...
+    TypeError: testvalue must be an integer
+    >>> baseGeo.integer_validator(baseGeo, "testvalue", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: testvalue must be an integer
+    >>> baseGeo.integer_validator(baseGeo, "testvalue")
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+    >>> baseGeo.integer_validator(baseGeo)
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+    >>> baseGeo.integer_validator()
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 3 required positional arguments: 'self', 'name', and 'value'
+    >>> baseGeo.integer_validator(baseGeo, "testvalue", 2, 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
