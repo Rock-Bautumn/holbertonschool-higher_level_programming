@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module contains a class named BaseGeometry
+This module contains a class named Rectangle
 """
 
 
