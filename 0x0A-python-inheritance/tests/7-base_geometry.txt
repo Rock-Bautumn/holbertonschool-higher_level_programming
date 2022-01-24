@@ -1,0 +1,29 @@
+Set up the test conditions
+
+    >>> MyList = __import__("1-my_list").MyList
+
+
+Do the tests
+
+    >>> baseGeo.integer_validator(baseGeo, "testvalue", -1)
+    Traceback (most recent call last):
+    ...
+    ValueError: testvalue must be greater than 0
+    >>> baseGeo.integer_validator(baseGeo, "negative 5 error", -5)
+    Traceback (most recent call last):
+    ...
+    ValueError: negative 5 error must be greater than 0
+    >>> baseGeo.integer_validator(baseGeo, "thirty works", 30)
+    >>> baseGeo.integer_validator(baseGeo, "zero value fails", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: zero value fails must be greater than 0
+    >>> baseGeo.integer_validator(baseGeo, "one value", 1)
+    >>> baseGeo.integer_validator(baseGeo, "testvalue", "string error")
+    Traceback (most recent call last):
+    ...
+    TypeError: testvalue must be an integer
+    >>> baseGeo.area(baseGeo())
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
