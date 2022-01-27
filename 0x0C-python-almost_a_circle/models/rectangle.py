@@ -93,8 +93,11 @@ class Rectangle(Base):
         return self.__height * self.__width
     
     def display(self):
+        for emptyrow in range(self.__y):
+            print('')
         for rows in range(self.__height):
-            print("{}".format('#' * self.__width))
+            print("{}{}".format(
+                ' ' * self.__x, '#' * self.__width))
 
     def __str__(self):
         """
