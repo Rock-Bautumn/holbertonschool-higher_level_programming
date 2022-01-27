@@ -85,3 +85,9 @@ class Rectangle(Base):
         Sets the value of y
         """
         validate_not_neg("y", num)
+
+    def area(self):
+        """
+        Returns the area of the rectangle
+        """
+        return self.__height * self.__width
