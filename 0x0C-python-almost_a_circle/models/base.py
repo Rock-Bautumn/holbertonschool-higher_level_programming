@@ -22,3 +22,26 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+def validate_int(value, num):
+    """
+    validate that num is an integer, value is a string of what the num is, eg width
+    """
+    if type(value) is not str:
+        raise TypeError("value passed to validate_int must be string")
+    if type(num) is not int:
+        raise TypeError(f"{value} must be an integer")
+    if num <= 0:
+        raise ValueError(f"{value} must be > 0")
+
+def validate_not_neg(value, num):
+    """
+    validate that num is a 0 or positive integer,
+    value is a string of what the num is, eg width
+    """
+    if type(value) is not str:
+        raise TypeError("value passed to validate_not_neg must be string")
+    if type(num) is not int:
+        raise TypeError(f"{value} must be an integer")
+    if num < 0:
+        raise ValueError(f"{value} must be >= 0")
