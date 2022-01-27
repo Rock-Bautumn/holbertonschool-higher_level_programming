@@ -95,3 +95,10 @@ class Rectangle(Base):
     def display(self):
         for rows in range(self.__height):
             print("{}".format('#' * self.__width))
+
+    def __str__(self):
+        """
+        Makes a pretty string of our rectangle object
+        """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height)
