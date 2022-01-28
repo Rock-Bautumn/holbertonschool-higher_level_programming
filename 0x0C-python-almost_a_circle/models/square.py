@@ -62,3 +62,12 @@ class Square(Rectangle):
                     newargs[3] = kwargs[i]
         self.__init__(
             newargs[1], newargs[2], newargs[3], newargs[0])
+
+    def to_dictionary(self):
+        """
+        Returns a dictionary representation of the object
+        """
+        return {
+            'id': self.id, 'size': self.width,
+            'x': self.x, 'y': self.y
+        }
