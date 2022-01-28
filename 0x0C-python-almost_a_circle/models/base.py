@@ -40,11 +40,17 @@ class Base:
         Saves JSON string to file
         """
         with open(cls.__name__ + ".json", 'w') as jsonfile:
-            newlist = []
+            emptylist = []
             if list_objs is not None and len(list_objs) > 0:
                 for i in list_objs:
-                    newlist.append(i.to_dictionary())
-            jsonfile.write(cls.to_json_string(newlist))
+                    emptylist.append(i.to_dictionary())
+            jsonfile.write(cls.to_json_string(emptylist))
+
+    @staticmethod
+    def from_json_string(json_string):
+        if json_string is None or len(json_string) < 1:
+            return []
+        return json.loads(json_string)
 
 
 def validate_int(value, num):
