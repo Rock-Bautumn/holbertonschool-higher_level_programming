@@ -52,6 +52,18 @@ class Base:
             return []
         return json.loads(json_string)
 
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Creates and returns an object instance defined by **dictionary kwargs
+        """
+        if cls.__name__ == "Square":
+            dummy = cls(1)
+        else:
+            dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
+
 
 def validate_int(value, num):
     """
