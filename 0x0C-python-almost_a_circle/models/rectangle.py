@@ -132,3 +132,13 @@ class Rectangle(Base):
                     newargs[4] = kwargs[i]
         self.__init__(
             newargs[1], newargs[2], newargs[3], newargs[4], newargs[0])
+
+    def to_dictionary(self):
+        """
+        Returns a dictionary representation of the object
+        """
+
+        return {
+            'id': self.id, 'width': self.width, 'height': self.height,
+            'x': self.x, 'y': self.y
+        }
