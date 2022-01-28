@@ -40,4 +40,4 @@ class Square(Rectangle):
         Makes a pretty string of our square object
         """
         return "[Square] ({}) {}/{} - {}".format(
-            self.id, self.x, self.y, self.width)
+            self.id, super().x, super().y, self.width)

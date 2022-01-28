@@ -4,16 +4,11 @@ from models.square import Square
 
 if __name__ == "__main__":
 
-    s1 = Square(5, 6, 2222, 89)
+    s1 = Square(5, 6, 7, 89)
     print(s1)
     print(s1.size)
     s1.size = 10
     print(s1)
-    print(s1.size)
-    # s1.size = -7
-    print(s1)
-    print(s1.size)
-    
 
     try:
         s1.size = "9"

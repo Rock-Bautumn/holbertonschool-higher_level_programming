@@ -77,7 +77,7 @@ class Rectangle(Base):
         """
         Gets the value of y
         """
-        return self.__x
+        return self.__y
     
     @y.setter
     def y(self, num):
@@ -93,6 +93,9 @@ class Rectangle(Base):
         return self.__height * self.__width
     
     def display(self):
+        """
+        Prints out the rectangle with the offset
+        """
         for emptyrow in range(self.__y):
             print('')
         for rows in range(self.__height):
