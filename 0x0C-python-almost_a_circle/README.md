@@ -2,5 +2,7 @@
 
 *Putting it all together*
 
-In this project, we combine everything we have previously learned into one project, except that
-we are now including args and kwargs.
+In this project, we combine everything we
+have previously learned into one project,
+except that we are now including args and
+kwargs.

@@ -41,7 +41,7 @@ class Rectangle(Base):
         """
         validate_int("width", width)
         self.__width = width
-    
+
     @property
     def height(self):
         """
@@ -63,7 +63,7 @@ class Rectangle(Base):
         Gets the value of x
         """
         return self.__x
-    
+
     @x.setter
     def x(self, num):
         """
@@ -78,7 +78,7 @@ class Rectangle(Base):
         Gets the value of y
         """
         return self.__y
-    
+
     @y.setter
     def y(self, num):
         """
@@ -91,7 +91,7 @@ class Rectangle(Base):
         Returns the area of the rectangle
         """
         return self.__height * self.__width
-    
+
     def display(self):
         """
         Prints out the rectangle with the offset
@@ -113,7 +113,6 @@ class Rectangle(Base):
         """
         Update the rectangle with new arbitrary properties
         """
-
         newargs = [self.id, self.__width, self.__height, self.__x, self.__y]
         if len(args) > 0:
             for i in range(len(args)):
@@ -137,7 +136,6 @@ class Rectangle(Base):
         """
         Returns a dictionary representation of the object
         """
-
         return {
             'id': self.id, 'width': self.width, 'height': self.height,
             'x': self.x, 'y': self.y

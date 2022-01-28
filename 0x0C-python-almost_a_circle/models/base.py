@@ -14,7 +14,6 @@ class Base:
 
     __nb_objects = 0
 
-
     def __init__(self, id=None):
         """
         Initialize the base
@@ -28,14 +27,30 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """
+        Turns list of dictionaries into JSON string
+        """
         if list_dictionaries is None or len(list_dictionaries) < 1:
             return "[]"
         return json.dumps(list_dictionaries)
 
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        Saves JSON string to file
+        """
+        with open(cls.__name__ + ".json", 'w') as jsonfile:
+            newlist = []
+            if list_objs is not None and len(list_objs) > 0:
+                for i in list_objs:
+                    newlist.append(i.to_dictionary())
+            jsonfile.write(cls.to_json_string(newlist))
+
 
 def validate_int(value, num):
     """
-    validate that num is an integer, value is a string of what the num is, eg width
+    validate that num is an integer,
+    value is a string of what the num is, eg width
     """
     if type(value) is not str:
         raise TypeError("value passed to validate_int must be string")
@@ -43,6 +58,7 @@ def validate_int(value, num):
         raise TypeError(f"{value} must be an integer")
     if num <= 0:
         raise ValueError(f"{value} must be > 0")
+
 
 def validate_not_neg(value, num):
     """
