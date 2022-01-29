@@ -101,7 +101,7 @@ class NewTest(unittest.TestCase):
         Test that the id of the square is correct
         """
         s1 = Square(10)
-        self.assertEqual(s1.id, 7)
+        self.assertEqual(s1.id, 11)
         s2 = Square(10, 0, 0, 12)
         self.assertEqual(s2.id, 12)
 

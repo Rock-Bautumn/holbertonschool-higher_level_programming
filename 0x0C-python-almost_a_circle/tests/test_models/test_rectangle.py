@@ -53,6 +53,9 @@ class TestRectangleDocs(unittest.TestCase):
 
 class TestRectangle(unittest.TestCase):
     def setUp(self):
+        """
+        Set up the test for rectangles
+        """
         self.inst = Rectangle(1, 2, 3, 4, 5)
 
     def test_width(self):
@@ -78,6 +81,13 @@ class TestRectangle(unittest.TestCase):
         test y
         """
         self.assertEqual(self.inst.y, 4)
+
+    def test_no_args(self):
+        """
+        test no args to init
+        """
+        with self.assertRaises(TypeError):
+            noargs = Rectangle()
 
     def test_too_many_args(self):
         """
@@ -109,6 +119,27 @@ class TestRectangle(unittest.TestCase):
         """Test ints <= 0 for y"""
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             r = Rectangle(1, 1, 1, -1)
+
+    def test_width_typeerror(self):
+        """Test string for width"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r = Rectangle("width", 1)
+
+    def test_height_typeerror(self):
+        """Test string for height"""
+        with self.assertRaisesRegex(
+                TypeError, "height must be an integer"):
+            r = Rectangle(1, "height")
+
+    def test_x_typerror(self):
+        """Test string for x"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            r = Rectangle(1, 1, "x")
+
+    def test_y_typeerror(self):
+        """Test string for y"""
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r = Rectangle(1, 1, 1, "y")
 
 
 if __name__ == "__main__":
