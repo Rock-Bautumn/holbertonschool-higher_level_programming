@@ -48,6 +48,9 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """
+        Returns the list of the json string representation
+        """
         if json_string is None or len(json_string) < 1:
             return []
         return json.loads(json_string)
@@ -63,6 +66,23 @@ class Base:
             dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Returns a list of object instances created from
+        json file <class>.json
+        """
+        jsonfilename = cls.__name__ + ".json"
+        try:
+            with open(jsonfilename, "r") as jsonfile:
+                jsonlist = cls.from_json_string(jsonfile.read())
+            objectlist = []
+            for object in jsonlist:
+                objectlist.append(cls.create(**object))
+            return objectlist
+        except:
+            return []
 
 
 def validate_int(value, num):
