@@ -20,12 +20,12 @@ class Rectangle(Base):
         super().__init__(id)
         validate_int("width", width)
         validate_int("height", height)
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
         validate_not_neg("x", x)
         validate_not_neg("y", y)
-        self.x = x
-        self.y = y
+        self.__x = x
+        self.__y = y
 
     @property
     def width(self):
