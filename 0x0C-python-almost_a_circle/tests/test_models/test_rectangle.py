@@ -5,6 +5,8 @@ Test for Base Class
 
 
 import unittest
+from io import StringIO
+from unittest.mock import patch
 from models.base import Base
 from models.rectangle import Rectangle
 from models import rectangle
@@ -140,6 +142,143 @@ class TestRectangle(unittest.TestCase):
         """Test string for y"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r = Rectangle(1, 1, 1, "y")
+
+    def test_display_empty(self):
+        """Test display with no arguments"""
+
+        with self.assertRaises(TypeError):
+            Rectangle.display()
+
+    def test_display_two_by_two(self):
+        """Test display of rectangle with 2 width and 2 height"""
+
+        r = Rectangle(2, 2)
+        expected_square = "##\n##\n"
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            Rectangle.display(r)
+            self.assertEqual(fake_out.getvalue(), expected_square)
+
+    def test_display_two_by_three(self):
+        """Test display of rectangle with 2 width and 3 height"""
+
+        r = Rectangle(2, 3)
+        expected_square = "##\n##\n##\n"
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            Rectangle.display(r)
+            self.assertEqual(fake_out.getvalue(), expected_square)
+
+    def test_display_two_by_three_1x_2y(self):
+        """Test display of rectangle with 2 width and 3 height"""
+
+        r = Rectangle(2, 3, 1, 2)
+        expected_square = "\n\n ##\n ##\n ##\n"
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            Rectangle.display(r)
+            self.assertEqual(fake_out.getvalue(), expected_square)
+
+    def test_display_two_by_three_1x_0y(self):
+        """Test display of rectangle with 2 width and 3 height"""
+
+        r = Rectangle(2, 3, 1)
+        expected_square = " ##\n ##\n ##\n"
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            Rectangle.display(r)
+            self.assertEqual(fake_out.getvalue(), expected_square)
+
+    def test_display_two_by_three_0x_2y(self):
+        """Test display of rectangle with 2 width and 3 height"""
+
+        r = Rectangle(2, 3, 0, 2)
+        expected_square = "\n\n##\n##\n##\n"
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            Rectangle.display(r)
+            self.assertEqual(fake_out.getvalue(), expected_square)
+
+    def test_rectangle_str(self):
+        """Test rectangle produces the correct __str__"""
+        r = Rectangle(2, 3, 4, 5, 6)
+        self.assertEqual(str(r), "[Rectangle] (6) 4/5 - 2/3")
+
+    def test_update_no_args(self):
+        """Test updating a rectangle with no arguments"""
+
+        r = Rectangle(2, 3, 4, 5, 6)
+        r.update()
+        self.assertEqual(str(r), "[Rectangle] (6) 4/5 - 2/3")
+
+    def test_update_id(self):
+        """Test updating a rectangle with new id"""
+
+        r = Rectangle(2, 3, 4, 5, 6)
+        r.update(8)
+        self.assertEqual(str(r), "[Rectangle] (8) 4/5 - 2/3")
+
+    def test_update_width(self):
+        """Test updating a rectangle with new width"""
+
+        r = Rectangle(2, 3, 4, 5, 6)
+        r.update(r.id, 1)
+        self.assertEqual(str(r), "[Rectangle] (6) 4/5 - 1/3")
+
+    def test_update_height(self):
+        """Test updating a rectangle with new height"""
+
+        r = Rectangle(2, 3, 4, 5, 6)
+        r.update(r.id, r.width, 8)
+        self.assertEqual(str(r), "[Rectangle] (6) 4/5 - 2/8")
+
+    def test_update_x(self):
+        """Test updating a rectangle with new x"""
+
+        r = Rectangle(2, 3, 4, 5, 6)
+        r.update(r.id, r.width, r.height, 8)
+        self.assertEqual(str(r), "[Rectangle] (6) 8/5 - 2/3")
+
+    def test_update_y(self):
+        """Test updating a rectangle with new y"""
+
+        r = Rectangle(2, 3, 4, 5, 6)
+        r.update(r.id, r.width, r.height, r.x, 8)
+        self.assertEqual(str(r), "[Rectangle] (6) 4/8 - 2/3")
+
+    # kwargs
+    def test_update_kwargs_id(self):
+        """Test updating a rectangle with new id"""
+
+        r = Rectangle(2, 3, 4, 5, 6)
+        print(f"We made {str(r)}")
+        r.update(**{'id': 89})
+        print(f"rectangle id is {r.id}")
+        print(str(r))
+        self.assertEqual(str(r), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_update_kwargs_width(self):
+        """Test updating a rectangle with new width"""
+
+        r = Rectangle(2, 3, 4, 5, 6)
+        r.update(width=8)
+        self.assertEqual(str(r), "[Rectangle] (6) 4/5 - 8/3")
+
+    def test_update_kwargs_height(self):
+        """Test updating a rectangle with new height"""
+
+        r = Rectangle(2, 3, 4, 5, 6)
+        r.update(r.id, r.width, 8)
+        self.assertEqual(str(r), "[Rectangle] (6) 4/5 - 2/8")
+
+    def test_update_kwargs_x(self):
+        """Test updating a rectangle with new x"""
+
+        r = Rectangle(2, 3, 4, 5, 6)
+        r.update(r.id, r.width, r.height, 8)
+        self.assertEqual(str(r), "[Rectangle] (6) 8/5 - 2/3")
+
+    def test_update_kwargs_y(self):
+        """Test updating a rectangle with new y"""
+
+        r = Rectangle(2, 3, 4, 5, 6)
+        r.update(r.id, r.width, r.height, r.x, 8)
+        self.assertEqual(str(r), "[Rectangle] (6) 4/8 - 2/3")
 
 
 if __name__ == "__main__":
