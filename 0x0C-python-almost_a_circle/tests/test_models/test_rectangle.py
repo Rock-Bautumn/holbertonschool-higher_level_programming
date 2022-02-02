@@ -246,10 +246,7 @@ class TestRectangle(unittest.TestCase):
         """Test updating a rectangle with new id"""
 
         r = Rectangle(2, 3, 4, 5, 6)
-        print(f"We made {str(r)}")
         r.update(**{'id': 89})
-        print(f"rectangle id is {r.id}")
-        print(str(r))
         self.assertEqual(str(r), "[Rectangle] (89) 4/5 - 2/3")
 
     def test_update_kwargs_width(self):
@@ -280,6 +277,13 @@ class TestRectangle(unittest.TestCase):
         r.update(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
         self.assertEqual(str(r), "[Rectangle] (89) 3/4 - 1/2")
 
+    def test_create(self):
+        """Test create method"""
+
+        r = Rectangle(5, 6, 7, 8, 9)
+        r_dict = r.to_dictionary()
+        cr = Rectangle.create(**r_dict)
+        self.assertEqual(str(cr), "[Rectangle] (9) 7/8 - 5/6")
 
 if __name__ == "__main__":
     unittest.main()
