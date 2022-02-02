@@ -256,29 +256,29 @@ class TestRectangle(unittest.TestCase):
         """Test updating a rectangle with new width"""
 
         r = Rectangle(2, 3, 4, 5, 6)
-        r.update(width=8)
-        self.assertEqual(str(r), "[Rectangle] (6) 4/5 - 8/3")
+        r.update(**{'id': 89, 'width': 1})
+        self.assertEqual(str(r), "[Rectangle] (89) 4/5 - 1/3")
 
     def test_update_kwargs_height(self):
         """Test updating a rectangle with new height"""
 
         r = Rectangle(2, 3, 4, 5, 6)
-        r.update(r.id, r.width, 8)
-        self.assertEqual(str(r), "[Rectangle] (6) 4/5 - 2/8")
+        r.update(**{'id': 89, 'width': 1, 'height': 2})
+        self.assertEqual(str(r), "[Rectangle] (89) 4/5 - 1/2")
 
     def test_update_kwargs_x(self):
         """Test updating a rectangle with new x"""
 
         r = Rectangle(2, 3, 4, 5, 6)
-        r.update(r.id, r.width, r.height, 8)
-        self.assertEqual(str(r), "[Rectangle] (6) 8/5 - 2/3")
+        r.update(**{'id': 89, 'width': 1, 'height': 2, 'x': 3})
+        self.assertEqual(str(r), "[Rectangle] (89) 3/5 - 1/2")
 
     def test_update_kwargs_y(self):
         """Test updating a rectangle with new y"""
 
         r = Rectangle(2, 3, 4, 5, 6)
-        r.update(r.id, r.width, r.height, r.x, 8)
-        self.assertEqual(str(r), "[Rectangle] (6) 4/8 - 2/3")
+        r.update(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        self.assertEqual(str(r), "[Rectangle] (89) 3/4 - 1/2")
 
 
 if __name__ == "__main__":
