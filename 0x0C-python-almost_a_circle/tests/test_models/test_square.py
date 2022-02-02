@@ -101,7 +101,7 @@ class NewTest(unittest.TestCase):
         Test that the id of the square is correct
         """
         s1 = Square(10)
-        self.assertEqual(s1.id, 17)
+        self.assertEqual(s1.id, 19)
         s2 = Square(10, 0, 0, 12)
         self.assertEqual(s2.id, 12)
 
@@ -309,7 +309,6 @@ class TestSquare_update_kwargs(unittest.TestCase):
         s = Square(10, 10, 10, 10)
         s.update(id=89, x=1, y=3, size=4)
         self.assertEqual("[Square] (89) 1/3 - 4", str(s))
-
 
 if __name__ == "__main__":
     unittest.main()

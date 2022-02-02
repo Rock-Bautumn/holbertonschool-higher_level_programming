@@ -285,5 +285,16 @@ class TestRectangle(unittest.TestCase):
         cr = Rectangle.create(**r_dict)
         self.assertEqual(str(cr), "[Rectangle] (9) 7/8 - 5/6")
 
+    def test_load_from_file(self):
+        """Test load from file"""
+        r1 = Rectangle(9, 8, 7, 6, 5)
+        r2 = Rectangle(30, 40, 50, 60, 7)
+        test_input = [r1, r2]
+        Rectangle.save_to_file(test_input)
+        test_output = Rectangle.load_from_file()
+        self.assertEqual(str(test_output[0]), '[Rectangle] (5) 7/6 - 9/8')
+        self.assertEqual(str(test_output[1]), '[Rectangle] (7) 50/60 - 30/40')
+
+
 if __name__ == "__main__":
     unittest.main()
