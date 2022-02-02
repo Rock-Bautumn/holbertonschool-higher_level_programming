@@ -310,5 +310,16 @@ class TestSquare_update_kwargs(unittest.TestCase):
         s.update(id=89, x=1, y=3, size=4)
         self.assertEqual("[Square] (89) 1/3 - 4", str(s))
 
+
+class TestSquare_create(unittest.TestCase):
+    """Test the creation of a square"""
+    def test_create(self):
+        """Test create method"""
+
+        s = Square(5, 6, 7, 8)
+        s_dict = s.to_dictionary()
+        cs = Square.create(**s_dict)
+        self.assertEqual(str(cs), "[Square] (8) 6/7 - 5")
+
 if __name__ == "__main__":
     unittest.main()
