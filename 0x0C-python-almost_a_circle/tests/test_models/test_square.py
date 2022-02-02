@@ -3,7 +3,6 @@ Tests are done for each method of the class"""
 import pep8
 import unittest
 from models.base import Base
-from models.rectangle import Rectangle
 from models.square import Square
 
 
@@ -314,12 +313,26 @@ class TestSquare_update_kwargs(unittest.TestCase):
 class TestSquare_create(unittest.TestCase):
     """Test the creation of a square"""
     def test_create(self):
-        """Test create method"""
+        """Test create method for square"""
 
         s = Square(5, 6, 7, 8)
         s_dict = s.to_dictionary()
         cs = Square.create(**s_dict)
         self.assertEqual(str(cs), "[Square] (8) 6/7 - 5")
+
+
+class TestSquare_load_from_file(unittest.TestCase):
+    """Test load from file for square"""
+    def test_load_from_file(self):
+        """tests load_from_file in square"""
+        s1 = Square(8, 7, 6, 5)
+        s2 = Square(20, 30, 40, 50)
+        test_input = [s1, s2]
+        Square.save_to_file(test_input)
+        test_output = Square.load_from_file()
+        self.assertEqual(str(test_output[0]), '[Square] (5) 7/6 - 8')
+        self.assertEqual(str(test_output[1]), '[Square] (50) 30/40 - 20')
+
 
 if __name__ == "__main__":
     unittest.main()
