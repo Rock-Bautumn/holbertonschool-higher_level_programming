@@ -1,6 +1,8 @@
 -- Display the cities contained in the database hbtn_0d_usa
 
 -- Display the cities
+USE hbtn_0d_usa;
+
 SELECT cities.id, cities.names, states.name 
 FROM cities 
     JOIN states ON cities.state_id = states.id 
