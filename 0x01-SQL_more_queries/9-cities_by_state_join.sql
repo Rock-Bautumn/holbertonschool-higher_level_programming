@@ -1,5 +1,4 @@
 -- Display the cities contained in the database hbtn_0d_usa
-
 -- Display the cities
 SELECT cities.id, cities.names, states.name 
 FROM cities 
