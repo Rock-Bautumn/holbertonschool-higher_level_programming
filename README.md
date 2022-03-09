@@ -1,5 +1,5 @@
 **High level programming (in python)**
 
-*#A higher level doesn't mean harder*
+*A higher level doesn't mean harder*
 
-This repository hosts my projects done in python. 
+This repository hosts my projects done in (mostly) python. 
