@@ -4,7 +4,6 @@ This file gets the status of Holberton intranet
 """
 
 
-
 if __name__ == "__main__":
     import urllib.request
     with urllib.request.urlopen('http://intranet.hbtn.io/status') as response:
