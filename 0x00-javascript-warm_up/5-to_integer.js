@@ -1,3 +1,8 @@
 #!/usr/bin/node
-const myVar = 'JavaScript is amazing';
-console.log(myVar);
+const myArgs = process.argv.slice(2);
+const myVar = parseInt(myArgs[0]);
+if (isNaN(myVar)) {
+  console.log('Not a number');
+} else {
+  console.log(myVar);
+}
