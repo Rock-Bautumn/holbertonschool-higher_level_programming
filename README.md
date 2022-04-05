@@ -1,5 +1,5 @@
-**High level programming (in python)**
+**High level programming**
 
 *A higher level doesn't mean harder*
 
-This repository hosts my projects done in (mostly) python. 
+This repository hosts my projects done in (mostly) python, nodejs, and sql. 
