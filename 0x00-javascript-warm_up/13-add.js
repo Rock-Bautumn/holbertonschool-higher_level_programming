@@ -1,7 +1,4 @@
 #!/usr/bin/node
-function add (a, b) {
+exports.add = function (a, b) {
   return a + b;
 }
-const myVar = 'JavaScript is amazing';
-console.log(myVar);
-add();
