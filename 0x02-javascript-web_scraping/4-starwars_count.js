@@ -22,7 +22,8 @@ request(reqRoute, function (error, response, body) {
     while (x < results.length) {
       // console.log(results[x]['characters']);
       // console.log(results[x]['characters'].includes(target));
-      if (results[x].characters.includes(target) === true) {
+      result = results[x].characters.filter(word => word.endsWith('/18/') == true)
+      if (result.length == 1) {
         matches++;
       }
       x++;
