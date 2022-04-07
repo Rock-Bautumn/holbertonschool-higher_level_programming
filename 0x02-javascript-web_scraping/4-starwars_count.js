@@ -5,7 +5,7 @@ let reqRoute = myArgs[0];
 if (!reqRoute.endsWith('/')) {
   reqRoute = reqRoute + '/';
 }
-const target = reqRoute.replace('films/', '') + 'people/18/';
+// const target = reqRoute.replace('films/', '') + 'people/18/';
 // console.log(reqRoute);
 // console.log(target);
 request(reqRoute, function (error, response, body) {
@@ -22,8 +22,8 @@ request(reqRoute, function (error, response, body) {
     while (x < results.length) {
       // console.log(results[x]['characters']);
       // console.log(results[x]['characters'].includes(target));
-      result = results[x].characters.filter(word => word.endsWith('/18/') == true)
-      if (result.length == 1) {
+      const result = results[x].characters.filter(word => word.endsWith('/18/') === true);
+      if (result.length === 1) {
         matches++;
       }
       x++;
