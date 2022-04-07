@@ -1,8 +1,11 @@
 #!/usr/bin/node
 const request = require('request');
 const myArgs = process.argv.slice(2);
-const reqRoute = myArgs[0];
-const target = reqRoute.replace('/films', '') + '/people/18/';
+let reqRoute = myArgs[0];
+if (!reqRoute.endsWith('/')) {
+  reqRoute = reqRoute + '/'
+}
+const target = reqRoute.replace('films/', '') + 'people/18/';
 // console.log(reqRoute);
 // console.log(target);
 request(reqRoute, function (error, response, body) {
