@@ -3,7 +3,7 @@ const request = require('request');
 const myArgs = process.argv.slice(2);
 let reqRoute = myArgs[0];
 if (!reqRoute.endsWith('/')) {
-  reqRoute = reqRoute + '/'
+  reqRoute = reqRoute + '/';
 }
 const target = reqRoute.replace('films/', '') + 'people/18/';
 // console.log(reqRoute);
