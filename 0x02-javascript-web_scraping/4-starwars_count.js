@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const request = require('request');
-// const myArgs = process.argv.slice(2);
-const reqRoute = 'https://swapi-api.hbtn.io/api/films/';
+const myArgs = process.argv.slice(2);
+const reqRoute = myArgs[0];
 const target = 'https://swapi-api.hbtn.io/api/people/18/';
 // console.log(reqRoute);
 request(reqRoute, function (error, response, body) {
