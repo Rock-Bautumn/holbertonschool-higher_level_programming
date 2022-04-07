@@ -25,9 +25,10 @@ request(reqRoute, function (error, response, body) {
       }
       // newDict[task.userId] = {};
     });
+    // newDict['4'].completed_tasks = 0;
     const outputObj = {};
     for (const [key, value] of Object.entries(newDict)) {
-      if (value.completed_tasks >= 0) {
+      if (value.completed_tasks > 0) {
         outputObj[key] = value.completed_tasks;
         // console.log(`${key}: ${value.completed_tasks}`)
       }
