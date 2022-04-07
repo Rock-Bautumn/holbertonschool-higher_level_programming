@@ -1,10 +1,8 @@
 #!/usr/bin/node
 const request = require('request');
 const myArgs = process.argv.slice(2);
-let reqRoute = myArgs[0];
-if (!reqRoute.endsWith('/')) {
-  reqRoute = reqRoute + '/';
-}
+const reqRoute = myArgs[0];
+
 // const target = reqRoute.replace('films/', '') + 'people/18/';
 // console.log(reqRoute);
 // console.log(target);
@@ -17,14 +15,18 @@ request(reqRoute, function (error, response, body) {
     // console.log(typeof body);
     const resJSON = JSON.parse(body);
     const results = resJSON.results;
+    // console.log('results:', results)
     let x = 0;
     let matches = 0;
     while (x < results.length) {
       // console.log(results[x]['characters']);
-      // console.log(results[x]['characters'].includes(target));
-      const result = results[x].characters.filter(word => word.endsWith('/18/') === true);
-      if (result.length === 1) {
-        matches++;
+      const thesechars = results[x].characters;
+      // console.log(thesechars)
+      // console.log("includes? ", results[x].characters.includes('/18/'));
+      // console.log("includes? ", thesechars.includes('/18/'));
+      // const result = results[x].characters.filter(word => word.endsWith('/18/') === true);
+      for (const character in thesechars) {
+        if (thesechars[character].includes('/18/')) { matches++; }
       }
       x++;
     }
