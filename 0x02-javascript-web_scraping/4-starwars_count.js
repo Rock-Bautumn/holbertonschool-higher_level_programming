@@ -2,8 +2,9 @@
 const request = require('request');
 const myArgs = process.argv.slice(2);
 const reqRoute = myArgs[0];
-const target = 'https://swapi-api.hbtn.io/api/people/18/';
+const target = reqRoute.replace('/films', '') + '/people/18/';
 // console.log(reqRoute);
+// console.log(target);
 request(reqRoute, function (error, response, body) {
   if (error !== null) {
     console.error('error:', error); // Print the error if one occurred
