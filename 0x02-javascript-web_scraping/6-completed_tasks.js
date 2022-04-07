@@ -1,5 +1,4 @@
 #!/usr/bin/node
-const fs = require('fs');
 const request = require('request');
 const myArgs = process.argv.slice(2);
 const reqRoute = myArgs[0];
@@ -18,15 +17,15 @@ request(reqRoute, function (error, response, body) {
       if (newDict[task.userId] === undefined) {
         newDict[task.userId] = {};
       }
-      if (newDict[task.userId]["completed_tasks"] === undefined) {
-        newDict[task.userId]["completed_tasks"] = 0;
+      if (newDict[task.userId].completed_tasks === undefined) {
+        newDict[task.userId].completed_tasks = 0;
       }
       if (task.completed === true) {
-        newDict[task.userId]["completed_tasks"] += 1;
+        newDict[task.userId].completed_tasks += 1;
       }
       // newDict[task.userId] = {};
     });
-    outputObj = {};
+    const outputObj = {};
     for (const [key, value] of Object.entries(newDict)) {
       if (value.completed_tasks >= 0) {
         outputObj[key] = value.completed_tasks;
